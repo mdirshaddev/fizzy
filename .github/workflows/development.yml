@@ -1,0 +1,30 @@
+name: Development
+
+# Only trigger, when the build workflow succeeded
+on:
+  workflow_run:
+    workflows: ['CodeQL']
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Install Node.js v16.14.0
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.14.0
+
+      - name: Install Packages
+        run: yarn install --frozen-lockfile
+
+      - name: Unit Testing
+        run: yarn test
