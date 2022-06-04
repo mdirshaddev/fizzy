@@ -24,7 +24,7 @@ jobs:
           node-version: 16.14.0
 
       - name: Install Packages
-        run: yarn install --frozen-lockfile
+        run: yarn install
 
       - name: Unit Testing
         run: yarn test
