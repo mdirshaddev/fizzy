@@ -13,5 +13,19 @@
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
-  "rules": {}
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": "off",
+    "no-undef": "off",
+    "react/jsx-filename-extension": "off",
+    "no-underscore-dangle": "off",
+    "prefer-regex-literals": "off",
+    "prefer-template": "off",
+    "implicit-arrow-linebreak": "off",
+    "comma-dangle": "off",
+    "arrow-parens": "off",
+    "no-unused-vars": "warn",
+    "operator-linebreak": "off",
+    "object-curly-newline": "off"
+  }
 }

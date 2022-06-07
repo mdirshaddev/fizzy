@@ -11,11 +11,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
+    "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
-    "check-format": "prettier -check .",
-    "check-lint": "eslint src --color",
-    "check-types": "tsc --project tsconfig.json --noEmit"
+    "check-format": "prettier --check .",
+    "check-lint": "eslint .",
+    "check-types": "tsc --project tsconfig.json --noEmit",
+    "postinstall": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -64,8 +66,11 @@
     "@types/react": "^18.0.11",
     "@types/react-dom": "^18.0.5",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "husky": "^8.0.1",
     "prettier": "^2.6.2",
