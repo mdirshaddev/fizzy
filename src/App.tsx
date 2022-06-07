@@ -1,9 +1,5 @@
 function App() {
-  return (
-    <div>
-      React with Firebase
-    </div>
-  );
+  return <div>React with Firebase</div>;
 }
 
 export default App;

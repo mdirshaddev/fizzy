@@ -1,4 +1,5 @@
 # Fizzy
+
 [![CodeQL](https://github.com/mdirshaddev/fizzy/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/mdirshaddev/fizzy/actions/workflows/codeql-analysis.yml)
 [![Development](https://github.com/mdirshaddev/fizzy/actions/workflows/development.yml/badge.svg)](https://github.com/mdirshaddev/fizzy/actions/workflows/development.yml)
 
