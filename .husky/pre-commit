@@ -6,9 +6,9 @@ echo '🏗️👷 Styling, testing and building your project before committing'
 # Check Prettier standards
 npm run check-format ||
 (
-    echo '🤢🤮🤢🤮 Its F**KING RAW - Your styling looks disgusting. 🤢🤮🤢🤮
-            Prettier Check Failed. Run npm run format, add changes and try commit again.';
-    false;
+        echo '🤢🤮🤢🤮 Its F**KING RAW - Your styling looks disgusting. 🤢🤮🤢🤮
+                Prettier Check Failed. Run npm run format, add changes and try commit again.';
+        false;
 )
 
 # Check ESLint Standards
@@ -22,9 +22,9 @@ npm run check-lint ||
 # Check tsconfig standards
 npm run check-types ||
 (
-    echo '🤡😂❌🤡 Failed Type check. 🤡😂❌🤡
-            Are you seriously trying to write that? Make the changes required above.'
-    false;
+        echo '🤡😂❌🤡 Failed Type check. 🤡😂❌🤡
+                Are you seriously trying to write that? Make the changes required above.'
+        false;
 )
 
 # If everything passes... Now we can commit
@@ -32,18 +32,18 @@ echo '🤔🤔🤔🤔... Alright... Code looks good to me... Trying to test and
 
 npm run test ||
 (
-    echo '❌👷🔨❌ Better call Bob... Because your test failed ❌👷🔨❌
-            React test failed: View the errors above to see why. 
-    '
-    false;
+        echo '❌👷🔨❌ Better call Irshad... Because your test failed ❌👷🔨❌
+                React test failed: View the errors above to see why. 
+        '
+        false;
 )
 
 npm run build ||
 (
-    echo '❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
-            React build failed: View the errors above to see why. 
-    '
-    false;
+        echo '❌👷🔨❌ Better call Irshad... Because your build failed ❌👷🔨❌
+                React build failed: View the errors above to see why. 
+        '
+        false;
 )
 
 # If everything passes... Now we can commit

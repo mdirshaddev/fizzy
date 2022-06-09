@@ -26,6 +26,7 @@
     "arrow-parens": "off",
     "no-unused-vars": "warn",
     "operator-linebreak": "off",
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "import/extensions": "off"
   }
 }
