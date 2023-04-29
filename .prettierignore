@@ -1,2 +1,11 @@
+# pnpm
+.pnpm-store
+
+# pnpm lockfile
+pnpm-lock.yaml
+
+# production
+dist
+
+# deps
 node_modules
-build

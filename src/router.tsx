@@ -1,32 +1,47 @@
-import { Routes, Route } from 'react-router-dom';
-// TODO: Need to work on Routes they need a authentication guard and designing
-import Dashboard from 'routes/Dashboard';
-import Error404 from 'routes/Error404';
-import Folder from 'routes/Folder';
-import Landing from 'routes/Landing';
-import Login from 'routes/Login';
-import Profile from 'routes/Profile';
-import Recent from 'routes/Recent';
-import Shared from 'routes/Shared';
-import Starred from 'routes/Starred';
-import Trash from 'routes/Trash';
+// React
+import { lazy, Fragment } from 'react';
 
-function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/profile/:userId" element={<Profile />} />
-      <Route path="/dashboard" element={<Dashboard />}>
-        <Route path="folder/:folderId" element={<Folder />} />
-        <Route path="recent" element={<Recent />} />
-        <Route path="trash" element={<Trash />} />
-        <Route path="starred" element={<Starred />} />
-        <Route path="shared" element={<Shared />} />
-      </Route>
-      <Route path="/*" element={<Error404 />} />
-    </Routes>
-  );
-}
+// Tanstack router
+import { Outlet, Router, Route, RootRoute } from '@tanstack/router';
 
-export default App;
+// Pages
+import IndexPage from 'src/pages';
+
+// Dev tool for debugging react routes
+const TanStackRouterDevtools =
+  import.meta.env.MODE === 'production'
+    ? () => null // Render nothing in production
+    : lazy(() =>
+        // Lazy load in development
+        import('@tanstack/router-devtools').then(res => ({
+          default: res.TanStackRouterDevtools
+          // For Embedded Mode
+          // default: res.TanStackRouterDevtoolsPanel
+        }))
+      );
+
+// Create a root route
+const rootRoute = new RootRoute({
+  component: () => (
+    <Fragment>
+      <Outlet />
+      <TanStackRouterDevtools />
+    </Fragment>
+  )
+});
+
+// Start Route tree elements
+
+const IndexRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: '/',
+  component: IndexPage
+});
+
+// End Route tree
+
+// Create the route tree using your routes
+const routeTree = rootRoute.addChildren([IndexRoute]);
+
+// Final router from collection of router
+export const router = new Router({ routeTree });
